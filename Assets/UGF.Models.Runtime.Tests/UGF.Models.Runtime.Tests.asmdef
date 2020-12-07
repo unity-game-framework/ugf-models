@@ -1,0 +1,20 @@
+{
+    "name": "UGF.Models.Runtime.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f6b33d76cb7e1114c91d9f41d692de48"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
