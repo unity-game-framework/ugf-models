@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ee814762a306f4a9923585235a3f18, type: 3}
-  m_Name: New Domain System Model Operator Controller Asset
+  m_Script: {fileID: 11500000, guid: 23f83980f26ff7343928cf2bc71d29f6, type: 3}
+  m_Name: DomainModelOperatorController
   m_EditorClassIdentifier: 
-  m_domainModelOperatorController: ef635803cc3de1d4d9fa6d2f8f952418
