@@ -9,9 +9,9 @@ namespace UGF.Models.Runtime.Domain
     [CreateAssetMenu(menuName = "Unity Game Framework/Models/Domain Model Execute Controller Async", order = 2000)]
     public class DomainModelExecuteControllerAsyncAsset : ModelControllerDescribedAsset<DomainModelExecuteControllerAsync, DomainModelExecuteControllerDescription>
     {
-        [SerializeField] private List<DomainModelExecuteControllerAsset.EntryData> m_modelControllers = new List<DomainModelExecuteControllerAsset.EntryData>();
+        [SerializeField] private List<EntryData> m_controllers = new List<EntryData>();
 
-        public List<DomainModelExecuteControllerAsset.EntryData> ModelControllers { get { return m_modelControllers; } }
+        public List<EntryData> Controllers { get { return m_controllers; } }
 
         [Serializable]
         public struct EntryData
@@ -29,9 +29,9 @@ namespace UGF.Models.Runtime.Domain
         {
             var description = new DomainModelExecuteControllerDescription();
 
-            for (int i = 0; i < m_modelControllers.Count; i++)
+            for (int i = 0; i < m_controllers.Count; i++)
             {
-                DomainModelExecuteControllerAsset.EntryData data = m_modelControllers[i];
+                EntryData data = m_controllers[i];
 
                 if (string.IsNullOrEmpty(data.Model)) throw new ArgumentException("Value cannot be null or empty.", nameof(data.Model));
                 if (string.IsNullOrEmpty(data.Controller)) throw new ArgumentException("Value cannot be null or empty.", nameof(data.Controller));
