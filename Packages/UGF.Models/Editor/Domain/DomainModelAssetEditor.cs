@@ -10,16 +10,28 @@ namespace UGF.Models.Editor.Domain
     internal class DomainModelAssetEditor : UnityEditor.Editor
     {
         private AssetReferenceListDrawer m_listModels;
+        private ReorderableListSelectionDrawerByPath m_listModelsSelection;
 
         private void OnEnable()
         {
             m_listModels = new AssetReferenceListDrawer(serializedObject.FindProperty("m_models"));
             m_listModels.Enable();
+
+            m_listModelsSelection = new ReorderableListSelectionDrawerByPath(m_listModels, "m_asset")
+            {
+                Drawer =
+                {
+                    DisplayTitlebar = true
+                }
+            };
+
+            m_listModelsSelection.Enable();
         }
 
         private void OnDisable()
         {
             m_listModels.Disable();
+            m_listModelsSelection.Disable();
         }
 
         public override void OnInspectorGUI()
@@ -29,6 +41,7 @@ namespace UGF.Models.Editor.Domain
                 EditorIMGUIUtility.DrawScriptProperty(serializedObject);
 
                 m_listModels.DrawGUILayout();
+                m_listModelsSelection.DrawGUILayout();
             }
         }
     }
