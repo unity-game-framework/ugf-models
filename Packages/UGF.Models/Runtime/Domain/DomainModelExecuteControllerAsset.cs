@@ -18,7 +18,7 @@ namespace UGF.Models.Runtime.Domain
         {
             [AssetGuid(typeof(ModelAsset))]
             [SerializeField] private string m_model;
-            [AssetGuid(typeof(ModelController))]
+            [AssetGuid(typeof(ModelControllerAsset))]
             [SerializeField] private string m_controller;
 
             public string Model { get { return m_model; } set { m_model = value; } }
