@@ -1,0 +1,18 @@
+{
+    "name": "UGF.Models.Editor",
+    "rootNamespace": "UGF.Models.Editor",
+    "references": [
+        "GUID:364cf8fe90f9b164abe18f1d5e11f862"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
