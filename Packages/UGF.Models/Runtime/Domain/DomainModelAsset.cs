@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace UGF.Models.Runtime.Domain
 {
+    [CreateAssetMenu(menuName = "Unity Game Framework/Models/Domain Model", order = 2000)]
     public class DomainModelAsset : ModelAsset
     {
         [SerializeField] private List<AssetReference<ModelAsset>> m_models = new List<AssetReference<ModelAsset>>();
