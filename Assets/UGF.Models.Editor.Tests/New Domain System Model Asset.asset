@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c9d83dd1ac4914b1a21758eddc88d8, type: 3}
   m_Name: New Domain System Model Asset
   m_EditorClassIdentifier: 
+  m_models:
+  - 85b35f314533f3c47be23c8e4d74f3f9

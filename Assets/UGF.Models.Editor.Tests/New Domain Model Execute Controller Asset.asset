@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5dabe3944c4af458cd633d292bf21f, type: 3}
   m_Name: New Domain Model Execute Controller Asset
   m_EditorClassIdentifier: 
-  m_modelControllers: []
+  m_controllers:
+  - m_model: 85b35f314533f3c47be23c8e4d74f3f9
+    m_controller: 1ff65e6af720c4b418ea4f58654a99c9

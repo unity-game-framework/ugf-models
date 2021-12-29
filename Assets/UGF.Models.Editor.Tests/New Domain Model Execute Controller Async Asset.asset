@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353db4d5176ef5c4abc297bdca2d9e14, type: 3}
   m_Name: New Domain Model Execute Controller Async Asset
   m_EditorClassIdentifier: 
-  m_modelControllers: []
+  m_controllers:
+  - m_model: 
+    m_controller: 
