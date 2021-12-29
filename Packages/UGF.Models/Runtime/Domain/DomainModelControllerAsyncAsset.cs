@@ -17,7 +17,10 @@ namespace UGF.Models.Runtime.Domain
         {
             var description = new DomainModelControllerDescription();
 
-            description.ControllerIds.AddRange(m_controllers);
+            for (int i = 0; i < m_controllers.Count; i++)
+            {
+                description.ControllerIds.Add(m_controllers[i]);
+            }
 
             return description;
         }
