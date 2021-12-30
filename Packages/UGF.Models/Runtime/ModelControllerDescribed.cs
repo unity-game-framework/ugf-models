@@ -15,6 +15,8 @@ namespace UGF.Models.Runtime
         {
             if (model == null) throw new ArgumentNullException(nameof(model));
             if (context == null) throw new ArgumentNullException(nameof(context));
+
+            OnExecute(model, context);
         }
 
         protected abstract void OnExecute(IModel model, IContext context);
