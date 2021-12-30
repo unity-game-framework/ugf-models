@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UGF.Application.Runtime;
 using UGF.Module.Controllers.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
@@ -8,8 +10,9 @@ namespace UGF.Models.Runtime.Domain
     public class DomainModelController : ModelControllerDescribed<DomainModelControllerDescription, IDomainModel>
     {
         public IDomainModelMeta Meta { get; }
+        public IReadOnlyList<IModelController> Controllers { get; }
 
-        protected IControllerModule ControllerModule { get; }
+        private readonly List<IModelController> m_controllers = new List<IModelController>();
 
         public DomainModelController(DomainModelControllerDescription description, IApplication application) : this(description, application, new DomainModelMeta())
         {
@@ -18,8 +21,29 @@ namespace UGF.Models.Runtime.Domain
         public DomainModelController(DomainModelControllerDescription description, IApplication application, IDomainModelMeta meta) : base(description, application)
         {
             Meta = meta ?? throw new ArgumentNullException(nameof(meta));
+            Controllers = new ReadOnlyCollection<IModelController>(m_controllers);
+        }
 
-            ControllerModule = Application.GetModule<IControllerModule>();
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
+
+            var controllerModule = Application.GetModule<IControllerModule>();
+
+            for (int i = 0; i < Description.ControllerIds.Count; i++)
+            {
+                string id = Description.ControllerIds[i];
+                var controller = controllerModule.Provider.Get<IModelController>(id);
+
+                m_controllers.Add(controller);
+            }
+        }
+
+        protected override void OnUninitialize()
+        {
+            base.OnUninitialize();
+
+            m_controllers.Clear();
         }
 
         protected override void OnExecute(IDomainModel model, IContext context)
@@ -29,10 +53,9 @@ namespace UGF.Models.Runtime.Domain
             using (new ContextValueScope(context, model))
             using (new ContextValueScope(context, Meta))
             {
-                for (int i = 0; i < Description.ControllerIds.Count; i++)
+                for (int i = 0; i < m_controllers.Count; i++)
                 {
-                    string controllerId = Description.ControllerIds[i];
-                    var controller = ControllerModule.Provider.Get<IModelController>(controllerId);
+                    IModelController controller = m_controllers[i];
 
                     controller.Execute(model, context);
                 }
