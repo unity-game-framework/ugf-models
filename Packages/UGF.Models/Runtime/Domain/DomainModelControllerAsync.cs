@@ -48,14 +48,14 @@ namespace UGF.Models.Runtime.Domain
             {
                 foreach ((string key, IModel value) in regular.Models)
                 {
-                    meta.Ids.Add(key, value);
+                    meta.Ids.Add(value, key);
                 }
             }
             else
             {
                 foreach ((string id, IModel model) in domainModel.Models)
                 {
-                    meta.Ids.Add(id, model);
+                    meta.Ids.Add(model, id);
                 }
             }
         }
