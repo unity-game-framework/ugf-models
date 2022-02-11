@@ -64,12 +64,16 @@ namespace UGF.Models.Runtime.Domain
 
         public string GetId(IModel model, IContext context)
         {
+            return TryGetId(model, context, out string id) ? id : throw new ArgumentException($"Id not found by the specified model: '{model}'.");
+        }
+
+        public bool TryGetId(IModel model, IContext context, out string id)
+        {
             if (context == null) throw new ArgumentNullException(nameof(context));
 
             var meta = context.Get<IDomainModelMeta>();
-            string id = meta.Ids.Get(model);
 
-            return id;
+            return meta.Ids.TryGet(model, out id);
         }
     }
 }

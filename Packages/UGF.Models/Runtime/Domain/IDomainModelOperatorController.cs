@@ -11,5 +11,6 @@ namespace UGF.Models.Runtime.Domain
         bool Remove(IDomainModel domainModel, IModel model, IContext context);
         bool Remove(IDomainModel domainModel, string modelId, IContext context);
         string GetId(IModel model, IContext context);
+        bool TryGetId(IModel model, IContext context, out string id);
     }
 }
