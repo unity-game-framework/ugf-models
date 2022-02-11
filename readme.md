@@ -2,15 +2,15 @@
 
 UGF.Models
 
-## Info
+## Information
 
-- **Version**: `1.0.0-preview`
+- **Version**: `1.0.0-preview.1`
 - **Unity**: `2021.2`
-- **API Compatibility Level**: `.NET Standard 2.0`
+- **API Compatibility Level**: `.NET Standard 2.1`
 
 ### Dependencies
 
-- `com.ugf.module.controllers`: `2.0.0`
+- `com.ugf.module.controllers`: `2.1.1`
 - `com.ugf.runtimetools`: `2.5.0`
 
 
