@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using UGF.Application.Runtime;
+using UGF.EditorTools.Runtime.Ids;
 using UGF.Module.Controllers.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
 
@@ -9,26 +10,24 @@ namespace UGF.Models.Runtime.Domain
 {
     public class DomainModelExecuteControllerAsync : ModelControllerAsyncDescribed<DomainModelExecuteControllerDescription, IDomainModel>
     {
-        public IReadOnlyList<(string ModelId, IModelControllerAsync Controller)> Controllers { get; }
+        public IReadOnlyList<(GlobalId ModelId, IModelControllerAsync Controller)> Controllers { get; }
 
-        private readonly List<(string ModelId, IModelControllerAsync Controller)> m_controllers = new List<(string ModelId, IModelControllerAsync Controller)>();
+        private readonly List<(GlobalId ModelId, IModelControllerAsync Controller)> m_controllers = new List<(GlobalId ModelId, IModelControllerAsync Controller)>();
 
         public DomainModelExecuteControllerAsync(DomainModelExecuteControllerDescription description, IApplication application) : base(description, application)
         {
-            Controllers = new ReadOnlyCollection<(string ModelId, IModelControllerAsync Controller)>(m_controllers);
+            Controllers = new ReadOnlyCollection<(GlobalId ModelId, IModelControllerAsync Controller)>(m_controllers);
         }
 
         protected override void OnInitialize()
         {
             base.OnInitialize();
 
-            var controllerModule = Application.GetModule<IControllerModule>();
-
             for (int i = 0; i < Description.ModelControllerIds.Count; i++)
             {
-                (string modelId, string controllerId) = Description.ModelControllerIds[i];
+                (GlobalId modelId, GlobalId controllerId) = Description.ModelControllerIds[i];
 
-                var controller = controllerModule.Provider.Get<IModelControllerAsync>(controllerId);
+                var controller = Application.GetController<IModelControllerAsync>(controllerId);
 
                 m_controllers.Add((modelId, controller));
             }
@@ -45,7 +44,7 @@ namespace UGF.Models.Runtime.Domain
         {
             for (int i = 0; i < m_controllers.Count; i++)
             {
-                (string modelId, IModelControllerAsync controller) = m_controllers[i];
+                (GlobalId modelId, IModelControllerAsync controller) = m_controllers[i];
 
                 IModel model = domainModel.Get(modelId);
 

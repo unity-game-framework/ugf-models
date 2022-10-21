@@ -11,21 +11,21 @@ namespace UGF.Models.Runtime.Domain
         {
         }
 
-        public string GenerateId()
+        public Guid GenerateId()
         {
-            return Guid.NewGuid().ToString("N");
+            return Guid.NewGuid();
         }
 
-        public string Add(IDomainModel domainModel, IModel model, IContext context)
+        public Guid Add(IDomainModel domainModel, IModel model, IContext context)
         {
-            string id = GenerateId();
+            Guid id = GenerateId();
 
             Add(domainModel, id, model, context);
 
             return id;
         }
 
-        public void Add(IDomainModel domainModel, string modelId, IModel model, IContext context)
+        public void Add(IDomainModel domainModel, Guid modelId, IModel model, IContext context)
         {
             if (domainModel == null) throw new ArgumentNullException(nameof(domainModel));
             if (context == null) throw new ArgumentNullException(nameof(context));
@@ -41,12 +41,12 @@ namespace UGF.Models.Runtime.Domain
             if (context == null) throw new ArgumentNullException(nameof(context));
 
             var meta = context.Get<IDomainModelMeta>();
-            string id = meta.Ids.Get(model);
+            Guid id = meta.Ids.Get(model);
 
             return Remove(domainModel, id, context);
         }
 
-        public bool Remove(IDomainModel domainModel, string modelId, IContext context)
+        public bool Remove(IDomainModel domainModel, Guid modelId, IContext context)
         {
             if (domainModel == null) throw new ArgumentNullException(nameof(domainModel));
 
@@ -62,12 +62,12 @@ namespace UGF.Models.Runtime.Domain
             return false;
         }
 
-        public string GetId(IModel model, IContext context)
+        public Guid GetId(IModel model, IContext context)
         {
-            return TryGetId(model, context, out string id) ? id : throw new ArgumentException($"Id not found by the specified model: '{model}'.");
+            return TryGetId(model, context, out Guid id) ? id : throw new ArgumentException($"Id not found by the specified model: '{model}'.");
         }
 
-        public bool TryGetId(IModel model, IContext context, out string id)
+        public bool TryGetId(IModel model, IContext context, out Guid id)
         {
             if (context == null) throw new ArgumentNullException(nameof(context));
 

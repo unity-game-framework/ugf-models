@@ -4,19 +4,19 @@ namespace UGF.Models.Runtime.Domain
 {
     public static class DomainModelExtensions
     {
-        public static T Get<T>(this IDomainModel domainModel, string id) where T : IModel
+        public static T Get<T>(this IDomainModel domainModel, Guid id) where T : IModel
         {
             return (T)Get(domainModel, id);
         }
 
-        public static IModel Get(this IDomainModel domainModel, string id)
+        public static IModel Get(this IDomainModel domainModel, Guid id)
         {
             if (domainModel == null) throw new ArgumentNullException(nameof(domainModel));
 
             return domainModel.TryGet(id, out IModel model) ? model : throw new ArgumentException($"Model not found by the specified id: '{id}'.");
         }
 
-        public static bool TryGet<T>(this IDomainModel domainModel, string id, out T model) where T : IModel
+        public static bool TryGet<T>(this IDomainModel domainModel, Guid id, out T model) where T : IModel
         {
             if (domainModel == null) throw new ArgumentNullException(nameof(domainModel));
 

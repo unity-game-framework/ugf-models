@@ -8,14 +8,14 @@ namespace UGF.Models.Runtime.Domain.Systems
 {
     public class DomainSystemModelProviderController : DomainSystemModelController<DomainSystemModelProviderControllerDescription>, IDomainSystemModelProviderController
     {
-        public IReadOnlyCollection<string> ModelIds { get { return m_modelToControllerIds.Keys; } }
+        public IReadOnlyCollection<Guid> ModelIds { get { return m_modelToControllerIds.Keys; } }
 
         protected IControllerModule ControllerModule { get; }
         protected IControllerInstanceProviderController ProviderController { get; }
 
-        private readonly Dictionary<string, string> m_modelToControllerIds = new Dictionary<string, string>();
-        private readonly Dictionary<string, string> m_controllerToModelIds = new Dictionary<string, string>();
-        private readonly HashSet<string> m_modelsToRemove = new HashSet<string>();
+        private readonly Dictionary<Guid, Guid> m_modelToControllerIds = new Dictionary<Guid, Guid>();
+        private readonly Dictionary<Guid, Guid> m_controllerToModelIds = new Dictionary<Guid, Guid>();
+        private readonly HashSet<Guid> m_modelsToRemove = new HashSet<Guid>();
 
         public DomainSystemModelProviderController(DomainSystemModelProviderControllerDescription description, IApplication application) : base(description, application)
         {
@@ -23,17 +23,13 @@ namespace UGF.Models.Runtime.Domain.Systems
             ProviderController = Application.GetController<IControllerInstanceProviderController>(Description.ProviderControllerId);
         }
 
-        public bool TryGetControllerId(string modelId, out string controllerId)
+        public bool TryGetControllerId(Guid modelId, out Guid controllerId)
         {
-            if (string.IsNullOrEmpty(modelId)) throw new ArgumentException("Value cannot be null or empty.", nameof(modelId));
-
             return m_modelToControllerIds.TryGetValue(modelId, out controllerId);
         }
 
-        public bool TryGetModelId(string controllerId, out string modelId)
+        public bool TryGetModelId(Guid controllerId, out Guid modelId)
         {
-            if (string.IsNullOrEmpty(controllerId)) throw new ArgumentException("Value cannot be null or empty.", nameof(controllerId));
-
             return m_controllerToModelIds.TryGetValue(controllerId, out modelId);
         }
 
@@ -47,7 +43,7 @@ namespace UGF.Models.Runtime.Domain.Systems
         protected override void OnExecute(IDomainSystemModel systemModel, IModel model, IContext context)
         {
             var meta = context.Get<IDomainModelMeta>();
-            string modelId = meta.Ids.Get(model);
+            Guid modelId = meta.Ids.Get(model);
 
             IModelController controller = GetController(modelId, context);
 
@@ -58,7 +54,7 @@ namespace UGF.Models.Runtime.Domain.Systems
         {
             var domainModel = context.Get<IDomainModel>();
 
-            foreach ((string modelId, _) in m_modelToControllerIds)
+            foreach ((Guid modelId, _) in m_modelToControllerIds)
             {
                 if (!domainModel.Models.ContainsKey(modelId))
                 {
@@ -66,7 +62,7 @@ namespace UGF.Models.Runtime.Domain.Systems
                 }
             }
 
-            foreach (string modelId in m_modelsToRemove)
+            foreach (Guid modelId in m_modelsToRemove)
             {
                 RemoveController(modelId, context);
             }
@@ -74,19 +70,19 @@ namespace UGF.Models.Runtime.Domain.Systems
             m_modelsToRemove.Clear();
         }
 
-        protected IModelController GetController(string modelId, IContext context)
+        protected IModelController GetController(Guid modelId, IContext context)
         {
-            if (TryGetControllerId(modelId, out string controllerId))
+            if (TryGetControllerId(modelId, out Guid controllerId))
             {
-                return ControllerModule.Provider.Get<IModelController>(controllerId);
+                return ControllerModule.Controllers.Get<IModelController>(controllerId);
             }
             else
             {
-                controllerId = Guid.NewGuid().ToString("N");
+                controllerId = Guid.NewGuid();
 
                 var controller = ProviderController.Build<IModelController>(Description.ControllerId);
 
-                ControllerModule.Provider.Add(controllerId, controller);
+                ControllerModule.Controllers.Add(controllerId, controller);
 
                 m_modelToControllerIds.Add(modelId, controllerId);
                 m_controllerToModelIds.Add(controllerId, modelId);
@@ -97,18 +93,18 @@ namespace UGF.Models.Runtime.Domain.Systems
             }
         }
 
-        protected void RemoveController(string modelId, IContext context)
+        protected void RemoveController(Guid modelId, IContext context)
         {
-            if (TryGetControllerId(modelId, out string controllerId))
+            if (TryGetControllerId(modelId, out Guid controllerId))
             {
                 m_modelToControllerIds.Remove(modelId);
                 m_controllerToModelIds.Remove(controllerId);
 
-                if (ControllerModule.Provider.TryGet(controllerId, out IController controller))
+                if (ControllerModule.Controllers.TryGet(controllerId, out IController controller))
                 {
                     controller.Uninitialize();
 
-                    ControllerModule.Provider.Remove(controllerId);
+                    ControllerModule.Controllers.Remove(controllerId);
                 }
             }
         }

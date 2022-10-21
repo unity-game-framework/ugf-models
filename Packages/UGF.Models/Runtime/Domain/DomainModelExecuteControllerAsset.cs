@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using UGF.Application.Runtime;
-using UGF.EditorTools.Runtime.IMGUI.Attributes;
+using UGF.EditorTools.Runtime.Assets;
+using UGF.EditorTools.Runtime.Ids;
 using UnityEngine;
 
 namespace UGF.Models.Runtime.Domain
@@ -16,13 +17,13 @@ namespace UGF.Models.Runtime.Domain
         [Serializable]
         public struct EntryData
         {
-            [AssetGuid(typeof(ModelAsset))]
-            [SerializeField] private string m_model;
-            [AssetGuid(typeof(ModelControllerAsset))]
-            [SerializeField] private string m_controller;
+            [AssetId(typeof(ModelAsset))]
+            [SerializeField] private GlobalId m_model;
+            [AssetId(typeof(ModelControllerAsset))]
+            [SerializeField] private GlobalId m_controller;
 
-            public string Model { get { return m_model; } set { m_model = value; } }
-            public string Controller { get { return m_controller; } set { m_controller = value; } }
+            public GlobalId Model { get { return m_model; } set { m_model = value; } }
+            public GlobalId Controller { get { return m_controller; } set { m_controller = value; } }
         }
 
         protected override DomainModelExecuteControllerDescription OnBuildDescription()
@@ -33,8 +34,8 @@ namespace UGF.Models.Runtime.Domain
             {
                 EntryData data = m_controllers[i];
 
-                if (string.IsNullOrEmpty(data.Model)) throw new ArgumentException("Value cannot be null or empty.", nameof(data.Model));
-                if (string.IsNullOrEmpty(data.Controller)) throw new ArgumentException("Value cannot be null or empty.", nameof(data.Controller));
+                if (!data.Model.IsValid()) throw new ArgumentException("Value should be valid.", nameof(data.Model));
+                if (!data.Controller.IsValid()) throw new ArgumentException("Value should be valid.", nameof(data.Controller));
 
                 description.ModelControllerIds.Add((data.Model, data.Controller));
             }

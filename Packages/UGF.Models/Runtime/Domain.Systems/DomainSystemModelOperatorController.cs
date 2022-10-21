@@ -18,7 +18,7 @@ namespace UGF.Models.Runtime.Domain.Systems
         {
             if (systemModel == null) throw new ArgumentNullException(nameof(systemModel));
 
-            string id = DomainModelOperatorController.GetId(model, context);
+            Guid id = DomainModelOperatorController.GetId(model, context);
 
             systemModel.ModelIds.Add(id);
         }
@@ -27,7 +27,7 @@ namespace UGF.Models.Runtime.Domain.Systems
         {
             if (systemModel == null) throw new ArgumentNullException(nameof(systemModel));
 
-            string id = DomainModelOperatorController.GetId(model, context);
+            Guid id = DomainModelOperatorController.GetId(model, context);
 
             return systemModel.ModelIds.Remove(id);
         }

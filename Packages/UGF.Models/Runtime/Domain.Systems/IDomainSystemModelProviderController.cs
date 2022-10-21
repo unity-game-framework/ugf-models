@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace UGF.Models.Runtime.Domain.Systems
 {
     public interface IDomainSystemModelProviderController : IModelController
     {
-        IReadOnlyCollection<string> ModelIds { get; }
+        IReadOnlyCollection<Guid> ModelIds { get; }
 
-        bool TryGetControllerId(string modelId, out string controllerId);
-        bool TryGetModelId(string controllerId, out string modelId);
+        bool TryGetControllerId(Guid modelId, out Guid controllerId);
+        bool TryGetModelId(Guid controllerId, out Guid modelId);
     }
 }

@@ -1,9 +1,10 @@
-﻿using UGF.RuntimeTools.Runtime.Providers;
+﻿using System;
+using UGF.RuntimeTools.Runtime.Providers;
 
 namespace UGF.Models.Runtime.Domain
 {
     public interface IDomainModelMeta
     {
-        IProvider<IModel, string> Ids { get; }
+        IProvider<IModel, Guid> Ids { get; }
     }
 }

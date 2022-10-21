@@ -1,5 +1,6 @@
 ﻿using UGF.Application.Runtime;
-using UGF.EditorTools.Runtime.IMGUI.Attributes;
+using UGF.EditorTools.Runtime.Assets;
+using UGF.EditorTools.Runtime.Ids;
 using UGF.Module.Controllers.Runtime;
 using UnityEngine;
 
@@ -8,13 +9,13 @@ namespace UGF.Models.Runtime.Domain.Systems
     [CreateAssetMenu(menuName = "Unity Game Framework/Models/Domain System Model Provider Controller", order = 2000)]
     public class DomainSystemModelProviderControllerAsset : ModelControllerDescribedAsset<DomainSystemModelProviderController, DomainSystemModelProviderControllerDescription>
     {
-        [AssetGuid(typeof(ControllerInstanceProviderControllerAsset))]
-        [SerializeField] private string m_provider;
-        [AssetGuid(typeof(ControllerAsset))]
-        [SerializeField] private string m_controller;
+        [AssetId(typeof(ControllerInstanceProviderControllerAsset))]
+        [SerializeField] private GlobalId m_provider;
+        [AssetId(typeof(ControllerAsset))]
+        [SerializeField] private GlobalId m_controller;
 
-        public string Provider { get { return m_provider; } set { m_provider = value; } }
-        public string Controller { get { return m_controller; } set { m_controller = value; } }
+        public GlobalId Provider { get { return m_provider; } set { m_provider = value; } }
+        public GlobalId Controller { get { return m_controller; } set { m_controller = value; } }
 
         protected override DomainSystemModelProviderControllerDescription OnBuildDescription()
         {

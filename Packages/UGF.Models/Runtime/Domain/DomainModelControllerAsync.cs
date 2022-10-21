@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using UGF.Application.Runtime;
+using UGF.EditorTools.Runtime.Ids;
 using UGF.Module.Controllers.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
 
@@ -29,12 +30,10 @@ namespace UGF.Models.Runtime.Domain
         {
             base.OnInitialize();
 
-            var controllerModule = Application.GetModule<IControllerModule>();
-
             for (int i = 0; i < Description.ControllerIds.Count; i++)
             {
-                string id = Description.ControllerIds[i];
-                var controller = controllerModule.Provider.Get<IModelControllerAsync>(id);
+                GlobalId id = Description.ControllerIds[i];
+                var controller = Application.GetController<IModelControllerAsync>(id);
 
                 m_controllers.Add(controller);
             }
@@ -69,14 +68,14 @@ namespace UGF.Models.Runtime.Domain
 
             if (domainModel is DomainModel regular)
             {
-                foreach ((string key, IModel value) in regular.Models)
+                foreach ((Guid key, IModel value) in regular.Models)
                 {
                     meta.Ids.Add(value, key);
                 }
             }
             else
             {
-                foreach ((string id, IModel model) in domainModel.Models)
+                foreach ((Guid id, IModel model) in domainModel.Models)
                 {
                     meta.Ids.Add(model, id);
                 }

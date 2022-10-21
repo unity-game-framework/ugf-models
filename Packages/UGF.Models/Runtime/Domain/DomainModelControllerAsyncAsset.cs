@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UGF.Application.Runtime;
-using UGF.EditorTools.Runtime.IMGUI.Attributes;
+using UGF.EditorTools.Runtime.Assets;
+using UGF.EditorTools.Runtime.Ids;
 using UnityEngine;
 
 namespace UGF.Models.Runtime.Domain
@@ -8,10 +9,10 @@ namespace UGF.Models.Runtime.Domain
     [CreateAssetMenu(menuName = "Unity Game Framework/Models/Domain Model Controller Async", order = 2000)]
     public class DomainModelControllerAsyncAsset : ModelControllerDescribedAsset<DomainModelControllerAsync, DomainModelControllerDescription>
     {
-        [AssetGuid(typeof(ModelControllerAsset))]
-        [SerializeField] private List<string> m_controllers = new List<string>();
+        [AssetId(typeof(ModelControllerAsset))]
+        [SerializeField] private List<GlobalId> m_controllers = new List<GlobalId>();
 
-        public List<string> Controllers { get { return m_controllers; } }
+        public List<GlobalId> Controllers { get { return m_controllers; } }
 
         protected override DomainModelControllerDescription OnBuildDescription()
         {

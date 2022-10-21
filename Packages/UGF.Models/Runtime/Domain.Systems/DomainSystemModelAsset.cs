@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using UGF.EditorTools.Runtime.IMGUI.Attributes;
+using UGF.EditorTools.Runtime.Assets;
+using UGF.EditorTools.Runtime.Ids;
 using UnityEngine;
 
 namespace UGF.Models.Runtime.Domain.Systems
@@ -7,10 +8,10 @@ namespace UGF.Models.Runtime.Domain.Systems
     [CreateAssetMenu(menuName = "Unity Game Framework/Models/Domain System Model", order = 2000)]
     public class DomainSystemModelAsset : ModelAsset
     {
-        [AssetGuid(typeof(ModelAsset))]
-        [SerializeField] private List<string> m_models = new List<string>();
+        [AssetId(typeof(ModelAsset))]
+        [SerializeField] private List<GlobalId> m_models = new List<GlobalId>();
 
-        public List<string> Models { get { return m_models; } }
+        public List<GlobalId> Models { get { return m_models; } }
 
         protected override IModel OnBuild()
         {
