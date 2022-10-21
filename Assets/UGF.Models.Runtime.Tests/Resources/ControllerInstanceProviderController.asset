@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ControllerInstanceProviderController
   m_EditorClassIdentifier: 
   m_controllers:
-  - m_guid: 99514c3fcd7f0ea42a7b7c69f01b34a8
+  - m_guid:
+      m_first: 1055194160628321343
+      m_second: 12120343216536714026
     m_asset: {fileID: 11400000, guid: 99514c3fcd7f0ea42a7b7c69f01b34a8, type: 2}
   m_collections: []

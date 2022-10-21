@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DomainModelControllerAsync
   m_EditorClassIdentifier: 
   m_controllers:
-  - 1b9beffa738e10344b87b5401b988ac1
+  - m_first: 1167685257581555706
+    m_second: 13946126438923339595

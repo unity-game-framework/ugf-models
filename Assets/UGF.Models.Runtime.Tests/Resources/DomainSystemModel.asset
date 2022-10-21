@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DomainSystemModel
   m_EditorClassIdentifier: 
   m_models:
-  - c7ec7dee8c761684ebb0e85d3f6189c3
+  - m_first: 1622576207548415470
+    m_second: 14089899833991672043

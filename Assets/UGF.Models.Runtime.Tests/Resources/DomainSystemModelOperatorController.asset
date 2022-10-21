@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ee814762a306f4a9923585235a3f18, type: 3}
   m_Name: DomainSystemModelOperatorController
   m_EditorClassIdentifier: 
-  m_domainModelOperatorController: 6ab0f193d2ee96e49b228b7aa4dfeea2
+  m_domainModelOperatorController:
+    m_first: 10873047321813250451
+    m_second: 11740567176125031067

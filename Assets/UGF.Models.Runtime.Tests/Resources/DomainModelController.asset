@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DomainModelController
   m_EditorClassIdentifier: 
   m_controllers:
-  - f6ac719deafe29d4eb07bc6bc6d19b24
+  - m_first: 3014292431398793629
+    m_second: 2637932656896772075

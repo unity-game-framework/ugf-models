@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33539a3ac19835f4690be12cfd7fd84a, type: 3}
   m_Name: DomainSystemModelProviderController
   m_EditorClassIdentifier: 
-  m_provider: b0d15e524a15fe04593ca3e587cd0e7d
-  m_controller: 99514c3fcd7f0ea42a7b7c69f01b34a8
+  m_provider:
+    m_first: 18303836242561818194
+    m_second: 9011365887971900505
+  m_controller:
+    m_first: 1055194160628321343
+    m_second: 12120343216536714026

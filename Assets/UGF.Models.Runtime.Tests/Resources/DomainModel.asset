@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: DomainModel
   m_EditorClassIdentifier: 
   m_models:
-  - m_guid: c7ec7dee8c761684ebb0e85d3f6189c3
+  - m_guid:
+      m_first: 1622576207548415470
+      m_second: 14089899833991672043
     m_asset: {fileID: 11400000, guid: c7ec7dee8c761684ebb0e85d3f6189c3, type: 2}
-  - m_guid: 80e1b5d2020f4e84fb0ff87cbf315cdc
+  - m_guid:
+      m_first: 5657649297494226386
+      m_second: 15878621084706672635
     m_asset: {fileID: 11400000, guid: 80e1b5d2020f4e84fb0ff87cbf315cdc, type: 2}
