@@ -12,7 +12,11 @@ namespace UGF.Models.Editor.Domain.Systems
 
         private void OnEnable()
         {
-            m_listModels = new ReorderableListDrawer(serializedObject.FindProperty("m_models"));
+            m_listModels = new ReorderableListDrawer(serializedObject.FindProperty("m_models"))
+            {
+                DisplayAsSingleLine = true
+            };
+
             m_listModels.Enable();
         }
 

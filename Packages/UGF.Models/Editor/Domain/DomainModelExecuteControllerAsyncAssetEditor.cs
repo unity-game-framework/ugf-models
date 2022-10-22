@@ -5,14 +5,14 @@ using UnityEditor;
 
 namespace UGF.Models.Editor.Domain
 {
-    [CustomEditor(typeof(DomainModelExecuteControllerAsyncAsset), true)]
+    [CustomEditor(typeof(DomainModelControllerAsyncAsset), true)]
     internal class DomainModelExecuteControllerAsyncAssetEditor : UnityEditor.Editor
     {
-        private DomainModelExecuteControllerListDrawer m_listControllers;
+        private ReorderableListKeyAndValueDrawer m_listControllers;
 
         private void OnEnable()
         {
-            m_listControllers = new DomainModelExecuteControllerListDrawer(serializedObject.FindProperty("m_controllers"));
+            m_listControllers = new ReorderableListKeyAndValueDrawer(serializedObject.FindProperty("m_controllers"), "m_model", "m_controller");
             m_listControllers.Enable();
         }
 

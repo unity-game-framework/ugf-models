@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace UGF.Models.Runtime.Domain.Systems
 {
     public class DomainSystemModel : IDomainSystemModel
     {
-        public List<string> ModelIds { get; set; } = new List<string>();
+        public List<Guid> ModelIds { get; set; } = new List<Guid>();
 
-        IList<string> IDomainSystemModel.ModelIds { get { return ModelIds; } }
+        IList<Guid> IDomainSystemModel.ModelIds { get { return ModelIds; } }
     }
 }

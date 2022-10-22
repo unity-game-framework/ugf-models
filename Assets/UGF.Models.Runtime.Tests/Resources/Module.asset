@@ -14,24 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_useReverseUninitializationOrder: 1
   m_controllers:
-  - m_guid: b0d15e524a15fe04593ca3e587cd0e7d
-    m_asset: {fileID: 11400000, guid: b0d15e524a15fe04593ca3e587cd0e7d, type: 2}
-  - m_guid: 6ab0f193d2ee96e49b228b7aa4dfeea2
-    m_asset: {fileID: 11400000, guid: 6ab0f193d2ee96e49b228b7aa4dfeea2, type: 2}
-  - m_guid: c3a4af144520b7f45afab35bc5cf06cf
-    m_asset: {fileID: 11400000, guid: c3a4af144520b7f45afab35bc5cf06cf, type: 2}
-  - m_guid: 99514c3fcd7f0ea42a7b7c69f01b34a8
+  - m_guid:
+      m_first: 1055194160628321343
+      m_second: 12120343216536714026
     m_asset: {fileID: 11400000, guid: 99514c3fcd7f0ea42a7b7c69f01b34a8, type: 2}
-  - m_guid: ce3473552c80230499556527c142ac6f
-    m_asset: {fileID: 11400000, guid: ce3473552c80230499556527c142ac6f, type: 2}
-  - m_guid: f6ac719deafe29d4eb07bc6bc6d19b24
-    m_asset: {fileID: 11400000, guid: f6ac719deafe29d4eb07bc6bc6d19b24, type: 2}
-  - m_guid: b148c8ecb988147488302960be6c74ca
-    m_asset: {fileID: 11400000, guid: b148c8ecb988147488302960be6c74ca, type: 2}
-  - m_guid: 52173ffcd9c18594b9e64576ac7dd5a7
+  - m_guid:
+      m_first: 9625557727926763516
+      m_second: 12093710554045474489
     m_asset: {fileID: 11400000, guid: 52173ffcd9c18594b9e64576ac7dd5a7, type: 2}
-  - m_guid: 1b9beffa738e10344b87b5401b988ac1
+  - m_guid:
+      m_first: 3014292431398793629
+      m_second: 2637932656896772075
+    m_asset: {fileID: 11400000, guid: f6ac719deafe29d4eb07bc6bc6d19b24, type: 2}
+  - m_guid:
+      m_first: 1167685257581555706
+      m_second: 13946126438923339595
     m_asset: {fileID: 11400000, guid: 1b9beffa738e10344b87b5401b988ac1, type: 2}
-  - m_guid: f5a327fd871186045b44471425082a61
-    m_asset: {fileID: 11400000, guid: f5a327fd871186045b44471425082a61, type: 2}
   m_collections: []

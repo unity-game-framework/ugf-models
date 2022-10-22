@@ -1,4 +1,5 @@
-﻿using UGF.Application.Runtime;
+﻿using System;
+using UGF.Application.Runtime;
 using UGF.Module.Controllers.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
 
@@ -12,11 +13,11 @@ namespace UGF.Models.Runtime.Domain.Systems
         {
         }
 
-        protected override void OnExecute(IDomainSystemModel systemModel, IModel model, IContext context)
+        protected override void OnExecute(IDomainSystemModel systemModel, Guid id, IModel model, IContext context)
         {
-            OnExecute(systemModel, (TModel)model, context);
+            OnExecute(systemModel, id, (TModel)model, context);
         }
 
-        protected abstract void OnExecute(IDomainSystemModel systemModel, TModel model, IContext context);
+        protected abstract void OnExecute(IDomainSystemModel systemModel, Guid id, TModel model, IContext context);
     }
 }

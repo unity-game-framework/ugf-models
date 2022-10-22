@@ -1,4 +1,5 @@
-﻿using UGF.Application.Runtime;
+﻿using System;
+using UGF.Application.Runtime;
 using UGF.Module.Controllers.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
 
@@ -16,13 +17,13 @@ namespace UGF.Models.Runtime.Domain.Systems
 
             for (int i = 0; i < systemModel.ModelIds.Count; i++)
             {
-                string id = systemModel.ModelIds[i];
+                Guid id = systemModel.ModelIds[i];
                 IModel model = domainModel.Get(id);
 
-                OnExecute(systemModel, model, context);
+                OnExecute(systemModel, id, model, context);
             }
         }
 
-        protected abstract void OnExecute(IDomainSystemModel systemModel, IModel model, IContext context);
+        protected abstract void OnExecute(IDomainSystemModel systemModel, Guid id, IModel model, IContext context);
     }
 }
