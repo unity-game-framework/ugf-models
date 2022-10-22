@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-preview](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview) - 2022-10-22  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/2?closed=1)  
+    
+
+### Changed
+
+- Update project ([#3](https://github.com/unity-game-framework/ugf-models/issues/3))  
+    - Update dependencies: `com.ugf.module.controllers` to `4.0.0-preview.3` version.
+    - Update package _Unity_ version to `2022.1`.
+    - Change `IDomainModel` and related classes to use structure id instead of strings.
+    - Remove `DomainModelMeta` class.
+    - Remove `DomainModelExecuteController` and `DomainModelOperatorController` controller classes.
+    - Remove `DomainSystemModelOperatorController` and `DomainSystemModelProviderController` controller classes.
+
 ## [1.0.0-preview.1](https://github.com/unity-game-framework/ugf-models/releases/tag/1.0.0-preview.1) - 2022-02-11  
 
 ### Release Notes
