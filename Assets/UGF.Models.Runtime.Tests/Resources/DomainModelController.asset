@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_controllers:
   - m_model:
-      m_first: 5657649297494226386
-      m_second: 15878621084706672635
+      m_first: 1622576207548415470
+      m_second: 14089899833991672043
     m_controller:
       m_first: 1055194160628321343
       m_second: 12120343216536714026

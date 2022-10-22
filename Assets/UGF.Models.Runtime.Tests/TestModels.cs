@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using UGF.Application.Runtime;
@@ -7,9 +6,7 @@ using UGF.EditorTools.Runtime.Ids;
 using UGF.Models.Runtime.Domain;
 using UGF.Module.Controllers.Runtime;
 using UGF.RuntimeTools.Runtime.Contexts;
-using UGF.RuntimeTools.Runtime.Tasks;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 namespace UGF.Models.Runtime.Tests
 {
@@ -46,8 +43,8 @@ namespace UGF.Models.Runtime.Tests
             application.Uninitialize();
         }
 
-        [UnityTest]
-        public IEnumerator ExecuteAsync()
+        [Test]
+        public async Task ExecuteAsync()
         {
             IApplication application = CreateApplication();
             var asset = Resources.Load<DomainModelAsset>("DomainModel");
@@ -61,9 +58,7 @@ namespace UGF.Models.Runtime.Tests
 
             Assert.AreEqual(0, model.Value);
 
-            Task task = controller.ExecuteAsync(domainModel, context);
-
-            yield return task.WaitCoroutine();
+            await controller.ExecuteAsync(domainModel, context);
 
             Assert.AreEqual(1, model.Value);
 
