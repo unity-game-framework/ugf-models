@@ -8,13 +8,13 @@ using UGF.RuntimeTools.Runtime.Contexts;
 
 namespace UGF.Models.Runtime.Domain
 {
-    public class DomainModelExecuteControllerAsync : ModelControllerAsyncDescribed<DomainModelExecuteControllerDescription, IDomainModel>
+    public class DomainModelControllerAsync : ModelControllerAsyncDescribed<DomainModelControllerDescription, IDomainModel>
     {
         public IReadOnlyList<(GlobalId ModelId, IModelControllerAsync Controller)> Controllers { get; }
 
         private readonly List<(GlobalId ModelId, IModelControllerAsync Controller)> m_controllers = new List<(GlobalId ModelId, IModelControllerAsync Controller)>();
 
-        public DomainModelExecuteControllerAsync(DomainModelExecuteControllerDescription description, IApplication application) : base(description, application)
+        public DomainModelControllerAsync(DomainModelControllerDescription description, IApplication application) : base(description, application)
         {
             Controllers = new ReadOnlyCollection<(GlobalId ModelId, IModelControllerAsync Controller)>(m_controllers);
         }

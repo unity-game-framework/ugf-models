@@ -7,13 +7,13 @@ using UGF.RuntimeTools.Runtime.Contexts;
 
 namespace UGF.Models.Runtime.Domain
 {
-    public class DomainModelExecuteController : ModelControllerDescribed<DomainModelExecuteControllerDescription, IDomainModel>
+    public class DomainModelController : ModelControllerDescribed<DomainModelControllerDescription, IDomainModel>
     {
         public IReadOnlyList<(GlobalId ModelId, IModelController Controller)> Controllers { get; }
 
         private readonly List<(GlobalId ModelId, IModelController Controller)> m_controllers = new List<(GlobalId ModelId, IModelController Controller)>();
 
-        public DomainModelExecuteController(DomainModelExecuteControllerDescription description, IApplication application) : base(description, application)
+        public DomainModelController(DomainModelControllerDescription description, IApplication application) : base(description, application)
         {
             Controllers = new ReadOnlyCollection<(GlobalId ModelId, IModelController Controller)>(m_controllers);
         }

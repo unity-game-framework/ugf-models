@@ -7,8 +7,8 @@ using UnityEngine;
 
 namespace UGF.Models.Runtime.Domain
 {
-    [CreateAssetMenu(menuName = "Unity Game Framework/Models/Domain Model Execute Controller Async", order = 2000)]
-    public class DomainModelExecuteControllerAsyncAsset : ModelControllerDescribedAsset<DomainModelExecuteControllerAsync, DomainModelExecuteControllerDescription>
+    [CreateAssetMenu(menuName = "Unity Game Framework/Models/Domain Model Controller Async", order = 2000)]
+    public class DomainModelControllerAsyncAsset : ModelControllerDescribedAsset<DomainModelControllerAsync, DomainModelControllerDescription>
     {
         [SerializeField] private List<EntryData> m_controllers = new List<EntryData>();
 
@@ -26,9 +26,9 @@ namespace UGF.Models.Runtime.Domain
             public GlobalId Controller { get { return m_controller; } set { m_controller = value; } }
         }
 
-        protected override DomainModelExecuteControllerDescription OnBuildDescription()
+        protected override DomainModelControllerDescription OnBuildDescription()
         {
-            var description = new DomainModelExecuteControllerDescription();
+            var description = new DomainModelControllerDescription();
 
             for (int i = 0; i < m_controllers.Count; i++)
             {
@@ -43,9 +43,9 @@ namespace UGF.Models.Runtime.Domain
             return description;
         }
 
-        protected override DomainModelExecuteControllerAsync OnBuild(DomainModelExecuteControllerDescription description, IApplication application)
+        protected override DomainModelControllerAsync OnBuild(DomainModelControllerDescription description, IApplication application)
         {
-            return new DomainModelExecuteControllerAsync(description, application);
+            return new DomainModelControllerAsync(description, application);
         }
     }
 }
