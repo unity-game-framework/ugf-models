@@ -13,7 +13,7 @@ namespace UGF.Models.Runtime.Domain
         {
             if (domainModel == null) throw new ArgumentNullException(nameof(domainModel));
 
-            return domainModel.TryGet(id, out IModel model) ? model : throw new ArgumentException($"Model not found by the specified id: '{id}'.");
+            return domainModel.TryGet(id, out IModel model) ? model : throw new ArgumentException($"Model not found by the specified id: '{id:N}'.");
         }
 
         public static bool TryGet<T>(this IDomainModel domainModel, Guid id, out T model) where T : IModel
