@@ -20,10 +20,10 @@ namespace UGF.Models.Runtime.Domain.Systems
                 Guid id = systemModel.ModelIds[i];
                 IModel model = domainModel.Get(id);
 
-                OnExecute(systemModel, model, context);
+                OnExecute(systemModel, id, model, context);
             }
         }
 
-        protected abstract void OnExecute(IDomainSystemModel systemModel, IModel model, IContext context);
+        protected abstract void OnExecute(IDomainSystemModel systemModel, Guid id, IModel model, IContext context);
     }
 }
