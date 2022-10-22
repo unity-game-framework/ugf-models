@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7d4652b01937b4383d797ded6530a7, type: 3}
+  m_Script: {fileID: 11500000, guid: de5dabe3944c4af458cd633d292bf21f, type: 3}
   m_Name: DomainModelController
   m_EditorClassIdentifier: 
   m_controllers:
-  - m_first: 3014292431398793629
-    m_second: 2637932656896772075
+  - m_model:
+      m_first: 5657649297494226386
+      m_second: 15878621084706672635
+    m_controller:
+      m_first: 1055194160628321343
+      m_second: 12120343216536714026

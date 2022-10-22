@@ -21,11 +21,6 @@ namespace UGF.Models.Runtime.Tests
             IApplication application = CreateApplication();
 
             application.Initialize();
-
-            var controller = application.GetController<IDomainModelOperatorController>();
-
-            Assert.NotNull(controller);
-
             application.Uninitialize();
         }
 
@@ -40,7 +35,7 @@ namespace UGF.Models.Runtime.Tests
 
             application.Initialize();
 
-            var controller = application.GetController<IModelController>(new GlobalId("b148c8ecb988147488302960be6c74ca"));
+            var controller = application.GetController<IModelController>(new GlobalId("f6ac719deafe29d4eb07bc6bc6d19b24"));
 
             Assert.AreEqual(0, model.Value);
 
@@ -62,7 +57,7 @@ namespace UGF.Models.Runtime.Tests
 
             application.Initialize();
 
-            var controller = application.GetController<IModelControllerAsync>(new GlobalId("f5a327fd871186045b44471425082a61"));
+            var controller = application.GetController<IModelControllerAsync>(new GlobalId("1b9beffa738e10344b87b5401b988ac1"));
 
             Assert.AreEqual(0, model.Value);
 
