@@ -9,7 +9,7 @@ namespace UGF.Models.Runtime.Domain
 {
     public class DomainModelController : ModelControllerDescribed<DomainModelControllerDescription, IDomainModel>
     {
-        public IReadOnlyList<(GlobalId ModelId, IModelController Controller)> Controllers { get; }
+        public IList<(GlobalId ModelId, IModelController Controller)> Controllers { get; }
 
         private readonly List<(GlobalId ModelId, IModelController Controller)> m_controllers = new List<(GlobalId ModelId, IModelController Controller)>();
 
@@ -41,13 +41,16 @@ namespace UGF.Models.Runtime.Domain
 
         protected override void OnExecute(IDomainModel domainModel, IContext context)
         {
-            for (int i = 0; i < m_controllers.Count; i++)
+            using (new ContextValueScope(context, domainModel))
             {
-                (GlobalId modelId, IModelController controller) = m_controllers[i];
+                for (int i = 0; i < m_controllers.Count; i++)
+                {
+                    (GlobalId modelId, IModelController controller) = m_controllers[i];
 
-                IModel model = domainModel.Get(modelId);
+                    IModel model = domainModel.Get(modelId);
 
-                controller.Execute(model, context);
+                    controller.Execute(model, context);
+                }
             }
         }
     }

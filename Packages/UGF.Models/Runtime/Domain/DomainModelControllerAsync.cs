@@ -42,13 +42,16 @@ namespace UGF.Models.Runtime.Domain
 
         protected override async Task OnExecuteAsync(IDomainModel domainModel, IContext context)
         {
-            for (int i = 0; i < m_controllers.Count; i++)
+            using (new ContextValueScope(context, domainModel))
             {
-                (GlobalId modelId, IModelControllerAsync controller) = m_controllers[i];
+                for (int i = 0; i < m_controllers.Count; i++)
+                {
+                    (GlobalId modelId, IModelControllerAsync controller) = m_controllers[i];
 
-                IModel model = domainModel.Get(modelId);
+                    IModel model = domainModel.Get(modelId);
 
-                await controller.ExecuteAsync(model, context);
+                    await controller.ExecuteAsync(model, context);
+                }
             }
         }
     }

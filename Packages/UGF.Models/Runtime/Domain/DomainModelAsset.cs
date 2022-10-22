@@ -20,7 +20,7 @@ namespace UGF.Models.Runtime.Domain
                 AssetIdReference<ModelAsset> reference = m_models[i];
                 IModel model = reference.Asset.Build();
 
-                domain.Add(reference.Guid, model);
+                domain.Models.Add(reference.Guid, model);
             }
 
             return domain;

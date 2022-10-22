@@ -29,5 +29,12 @@ namespace UGF.Models.Runtime.Domain
             model = default;
             return false;
         }
+
+        public static bool TryGet(this IDomainModel domainModel, Guid id, out IModel model)
+        {
+            if (domainModel == null) throw new ArgumentNullException(nameof(domainModel));
+
+            return domainModel.Models.TryGetValue(id, out model);
+        }
     }
 }
