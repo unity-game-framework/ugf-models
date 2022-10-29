@@ -6,7 +6,7 @@ using UnityEditor;
 namespace UGF.Models.Editor.Domain
 {
     [CustomEditor(typeof(DomainModelControllerAsset), true)]
-    internal class DomainModelExecuteControllerAssetEditor : UnityEditor.Editor
+    internal class DomainModelControllerAssetEditor : UnityEditor.Editor
     {
         private ReorderableListKeyAndValueDrawer m_listControllers;
 
