@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-preview.1](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.1) - 2022-10-29  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/3?closed=1)  
+    
+
+### Added
+
+- Add domain model collections ([#5](https://github.com/unity-game-framework/ugf-models/issues/5))  
+    - Add `DomainModelCollectionAsset` abstract class to implement domain models collection.
+    - Add `DomainModelCollectionListAsset` class as implementation of domain model collection using list.
+    - Add `DomainModelAsset.Collections` property as list of `DomainModelCollectionAsset` collections used to setup domain model.
+
 ## [2.0.0-preview](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview) - 2022-10-22  
 
 ### Release Notes
