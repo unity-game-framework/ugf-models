@@ -5,13 +5,11 @@ using UnityEditor;
 
 namespace UGF.Models.Editor.Domain
 {
-    [CustomEditor(typeof(DomainModelAsset), true)]
-    internal class DomainModelAssetEditor : UnityEditor.Editor
+    [CustomEditor(typeof(DomainModelCollectionListAsset), true)]
+    internal class DomainModelCollectionListAssetEditor : UnityEditor.Editor
     {
         private ReorderableListDrawer m_listModels;
         private ReorderableListSelectionDrawerByPath m_listModelsSelection;
-        private ReorderableListDrawer m_listCollections;
-        private ReorderableListSelectionDrawerByElement m_listCollectionsSelection;
 
         private void OnEnable()
         {
@@ -28,31 +26,14 @@ namespace UGF.Models.Editor.Domain
                 }
             };
 
-            m_listCollections = new ReorderableListDrawer(serializedObject.FindProperty("m_collections"))
-            {
-                DisplayAsSingleLine = true
-            };
-
-            m_listCollectionsSelection = new ReorderableListSelectionDrawerByElement(m_listCollections)
-            {
-                Drawer =
-                {
-                    DisplayTitlebar = true
-                }
-            };
-
             m_listModels.Enable();
             m_listModelsSelection.Enable();
-            m_listCollections.Enable();
-            m_listCollectionsSelection.Enable();
         }
 
         private void OnDisable()
         {
             m_listModels.Disable();
             m_listModelsSelection.Disable();
-            m_listCollections.Disable();
-            m_listCollectionsSelection.Disable();
         }
 
         public override void OnInspectorGUI()
@@ -62,10 +43,7 @@ namespace UGF.Models.Editor.Domain
                 EditorIMGUIUtility.DrawScriptProperty(serializedObject);
 
                 m_listModels.DrawGUILayout();
-                m_listCollections.DrawGUILayout();
-
                 m_listModelsSelection.DrawGUILayout();
-                m_listCollectionsSelection.DrawGUILayout();
             }
         }
     }
