@@ -1,4 +1,5 @@
-﻿using UGF.EditorTools.Editor.IMGUI;
+﻿using UGF.EditorTools.Editor.Assets;
+using UGF.EditorTools.Editor.IMGUI;
 using UGF.EditorTools.Editor.IMGUI.Scopes;
 using UGF.Models.Runtime.Domain;
 using UnityEditor;
@@ -8,14 +9,14 @@ namespace UGF.Models.Editor.Domain
     [CustomEditor(typeof(DomainModelAsset), true)]
     internal class DomainModelAssetEditor : UnityEditor.Editor
     {
-        private ReorderableListDrawer m_listModels;
+        private AssetIdReferenceListDrawer m_listModels;
         private ReorderableListSelectionDrawerByPath m_listModelsSelection;
         private ReorderableListDrawer m_listCollections;
         private ReorderableListSelectionDrawerByElement m_listCollectionsSelection;
 
         private void OnEnable()
         {
-            m_listModels = new ReorderableListDrawer(serializedObject.FindProperty("m_models"))
+            m_listModels = new AssetIdReferenceListDrawer(serializedObject.FindProperty("m_models"))
             {
                 DisplayAsSingleLine = true
             };
