@@ -5,18 +5,14 @@ using UnityEditor;
 
 namespace UGF.Models.Editor.Domain
 {
-    [CustomEditor(typeof(DomainModelCollectionModelAsset), true)]
-    internal class DomainModelCollectionModelAssetEditor : UnityEditor.Editor
+    [CustomEditor(typeof(DomainModelGroupModelAsset), true)]
+    internal class DomainModelGroupModelAssetEditor : UnityEditor.Editor
     {
-        private ReorderableListDrawer m_listModels;
+        private ReorderableListKeyAndValueDrawer m_listModels;
 
         private void OnEnable()
         {
-            m_listModels = new ReorderableListDrawer(serializedObject.FindProperty("m_models"))
-            {
-                DisplayAsSingleLine = true
-            };
-
+            m_listModels = new ReorderableListKeyAndValueDrawer(serializedObject.FindProperty("m_models"));
             m_listModels.Enable();
         }
 
