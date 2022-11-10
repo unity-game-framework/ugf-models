@@ -4,13 +4,13 @@ UGF.Models
 
 ## Information
 
-- **Version**: `2.0.0-preview.1`
+- **Version**: `2.0.0-preview.2`
 - **Unity**: `2022.1`
 - **API Compatibility Level**: `.NET Standard 2.1`
 
 ### Dependencies
 
-- `com.ugf.module.controllers`: `4.0.0-preview.3`
+- `com.ugf.module.controllers`: `4.0.0-preview.6`
 
 
 ### Description

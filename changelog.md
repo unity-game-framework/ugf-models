@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-preview.2](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.2) - 2022-11-10  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/4?closed=1)  
+    
+
+### Added
+
+- Add domain model collection model ([#8](https://github.com/unity-game-framework/ugf-models/issues/8))  
+    - Update dependencies: `com.ugf.module.controllers` to `4.0.0-preview.6` version.
+    - Add `DomainModelCollectionModel` and related classes as collection of models defined at the domain.
+    - Add `DomainModelAsset` and `DomainModelCollectionListAsset` collections replacement support in inspector.
+    - Fix `DomainModelCollectionListAsset` class create menu order.
+- Add domain model group ([#7](https://github.com/unity-game-framework/ugf-models/issues/7))  
+    - Add `DomainModelGroupModel` and related classes to define model relations.
+
 ## [2.0.0-preview.1](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.1) - 2022-10-29  
 
 ### Release Notes
