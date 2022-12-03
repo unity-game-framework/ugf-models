@@ -23,10 +23,7 @@ namespace UGF.Models.Editor.Domain
 
             m_listModelsSelection = new ReorderableListSelectionDrawerByPath(m_listModels, "m_asset")
             {
-                Drawer =
-                {
-                    DisplayTitlebar = true
-                }
+                Drawer = { DisplayTitlebar = true }
             };
 
             m_listCollections = new ReorderableListDrawer(serializedObject.FindProperty("m_collections"))
@@ -36,10 +33,7 @@ namespace UGF.Models.Editor.Domain
 
             m_listCollectionsSelection = new ReorderableListSelectionDrawerByElement(m_listCollections)
             {
-                Drawer =
-                {
-                    DisplayTitlebar = true
-                }
+                Drawer = { DisplayTitlebar = true }
             };
 
             m_listModels.Enable();

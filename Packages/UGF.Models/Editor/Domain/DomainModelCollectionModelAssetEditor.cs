@@ -9,6 +9,7 @@ namespace UGF.Models.Editor.Domain
     internal class DomainModelCollectionModelAssetEditor : UnityEditor.Editor
     {
         private ReorderableListDrawer m_listModels;
+        private ReorderableListSelectionDrawerByElementGlobalId m_listModelsSelection;
 
         private void OnEnable()
         {
@@ -17,12 +18,19 @@ namespace UGF.Models.Editor.Domain
                 DisplayAsSingleLine = true
             };
 
+            m_listModelsSelection = new ReorderableListSelectionDrawerByElementGlobalId(m_listModels)
+            {
+                Drawer = { DisplayTitlebar = true }
+            };
+
             m_listModels.Enable();
+            m_listModelsSelection.Enable();
         }
 
         private void OnDisable()
         {
             m_listModels.Disable();
+            m_listModelsSelection.Disable();
         }
 
         public override void OnInspectorGUI()
@@ -32,6 +40,7 @@ namespace UGF.Models.Editor.Domain
                 EditorIMGUIUtility.DrawScriptProperty(serializedObject);
 
                 m_listModels.DrawGUILayout();
+                m_listModelsSelection.DrawGUILayout();
             }
         }
     }

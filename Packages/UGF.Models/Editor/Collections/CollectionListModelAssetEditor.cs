@@ -9,6 +9,7 @@ namespace UGF.Models.Editor.Collections
     internal class CollectionListModelAssetEditor : UnityEditor.Editor
     {
         private ReorderableListDrawer m_listItems;
+        private ReorderableListSelectionDrawerByElementGlobalId m_listItemsSelection;
 
         private void OnEnable()
         {
@@ -17,12 +18,19 @@ namespace UGF.Models.Editor.Collections
                 DisplayAsSingleLine = true
             };
 
+            m_listItemsSelection = new ReorderableListSelectionDrawerByElementGlobalId(m_listItems)
+            {
+                Drawer = { DisplayTitlebar = true }
+            };
+
             m_listItems.Enable();
+            m_listItemsSelection.Enable();
         }
 
         private void OnDisable()
         {
             m_listItems.Disable();
+            m_listItemsSelection.Disable();
         }
 
         public override void OnInspectorGUI()
@@ -32,6 +40,7 @@ namespace UGF.Models.Editor.Collections
                 EditorIMGUIUtility.DrawScriptProperty(serializedObject);
 
                 m_listItems.DrawGUILayout();
+                m_listItemsSelection.DrawGUILayout();
             }
         }
     }
