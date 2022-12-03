@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-preview.4](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.4) - 2022-12-03  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/6?closed=1)  
+    
+
+### Changed
+
+- Change model collections ([#14](https://github.com/unity-game-framework/ugf-models/issues/14))  
+    - Add `CollectionDictionaryModelController` and `CollectionListModelController` classes to work with model collection changes.
+    - Add `DomainModelGroupModelController` class to work with group model changes.
+    - Change `CollectionDictionaryModel` and `CollectionListModel` model classes to defined as generic with model instances instead of ids.
+    - Change `DomainSystemModelController` and `DomainModelController` classes to support model changes.
+- Change domain model collection model ([#13](https://github.com/unity-game-framework/ugf-models/issues/13))  
+    - Update dependencies: `com.ugf.editortools` to `2.14.0` version.
+    - Add `DomainModelCollectionListAsset` class support of nested collections and model build.
+    - Change `DomainModelCollectionAsset` class to be a model asset.
+    - Change `DomainModelAsset.Collections` property to be defined as collection of asset references.
+
 ## [2.0.0-preview.3](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.3) - 2022-11-12  
 
 ### Release Notes
