@@ -9,33 +9,36 @@ namespace UGF.Models.Runtime.Collections
         public event CollectionListModelChangeHandler<TModel> Added;
         public event CollectionListModelChangeHandler<TModel> Removed;
         public event CollectionListModelChangeHandler<TModel> Executed;
+        public event CollectionListModelHandler<TModel> Cleared;
 
         public CollectionListModelController(IApplication application) : base(application)
         {
         }
 
-        public void Add(CollectionListModel<TModel> collection, TModel model)
+        public void Add(CollectionListModel<TModel> collection, TModel model, IContext context)
         {
             if (collection == null) throw new ArgumentNullException(nameof(collection));
             if (model == null) throw new ArgumentNullException(nameof(model));
+            if (context == null) throw new ArgumentNullException(nameof(context));
 
             collection.Models.Add(model);
 
-            Added?.Invoke(collection, collection.Models.Count - 1, model);
+            Added?.Invoke(collection, collection.Models.Count - 1, model, context);
         }
 
-        public void Add(CollectionListModel<TModel> collection, int index, TModel model)
+        public void Add(CollectionListModel<TModel> collection, int index, TModel model, IContext context)
         {
             if (collection == null) throw new ArgumentNullException(nameof(collection));
             if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
             if (model == null) throw new ArgumentNullException(nameof(model));
+            if (context == null) throw new ArgumentNullException(nameof(context));
 
             collection.Models.Insert(index, model);
 
-            Added?.Invoke(collection, index, model);
+            Added?.Invoke(collection, index, model, context);
         }
 
-        public void Remove(CollectionListModel<TModel> collection, int index)
+        public void Remove(CollectionListModel<TModel> collection, int index, IContext context)
         {
             if (collection == null) throw new ArgumentNullException(nameof(collection));
             if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
@@ -44,10 +47,10 @@ namespace UGF.Models.Runtime.Collections
 
             collection.Models.RemoveAt(index);
 
-            Removed?.Invoke(collection, index, model);
+            Removed?.Invoke(collection, index, model, context);
         }
 
-        public bool Remove(CollectionListModel<TModel> collection, TModel model)
+        public bool Remove(CollectionListModel<TModel> collection, TModel model, IContext context)
         {
             if (collection == null) throw new ArgumentNullException(nameof(collection));
             if (model == null) throw new ArgumentNullException(nameof(model));
@@ -58,11 +61,20 @@ namespace UGF.Models.Runtime.Collections
             {
                 collection.Models.RemoveAt(index);
 
-                Removed?.Invoke(collection, index, model);
+                Removed?.Invoke(collection, index, model, context);
                 return true;
             }
 
             return false;
+        }
+
+        public void Clear(CollectionListModel<TModel> collection, IContext context)
+        {
+            if (collection == null) throw new ArgumentNullException(nameof(collection));
+
+            collection.Models.Clear();
+
+            Cleared?.Invoke(collection, context);
         }
 
         protected override void OnExecute(CollectionListModel<TModel> collection, IContext context)
@@ -73,7 +85,7 @@ namespace UGF.Models.Runtime.Collections
 
                 OnExecute(collection, i, model, context);
 
-                Executed?.Invoke(collection, i, model);
+                Executed?.Invoke(collection, i, model, context);
             }
         }
 
