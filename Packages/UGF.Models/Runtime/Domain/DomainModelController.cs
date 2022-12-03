@@ -58,6 +58,11 @@ namespace UGF.Models.Runtime.Domain
             Added?.Invoke(domainModel, id, model, context);
         }
 
+        public bool Remove(IDomainModel domainModel, Guid id, IContext context)
+        {
+            return Remove(domainModel, id, context, out _);
+        }
+
         public bool Remove(IDomainModel domainModel, Guid id, IContext context, out IModel model)
         {
             if (domainModel == null) throw new ArgumentNullException(nameof(domainModel));
