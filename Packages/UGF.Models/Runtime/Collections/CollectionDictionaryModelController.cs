@@ -9,7 +9,7 @@ namespace UGF.Models.Runtime.Collections
         public event CollectionDictionaryModelChangeHandler<TModel> Added;
         public event CollectionDictionaryModelChangeHandler<TModel> Removed;
         public event CollectionDictionaryModelChangeHandler<TModel> Changed;
-        public event CollectionDictionaryModelHandler<TModel> Cleared;
+        public event CollectionDictionaryModelClearHandler<TModel> Cleared;
         public event CollectionDictionaryModelChangeHandler<TModel> Executed;
 
         public CollectionDictionaryModelController(IApplication application) : base(application)
