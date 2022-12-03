@@ -18,4 +18,7 @@ MonoBehaviour:
       m_second: 14089899833991672043
     m_asset: {fileID: 11400000, guid: c7ec7dee8c761684ebb0e85d3f6189c3, type: 2}
   m_collections:
-  - {fileID: 11400000, guid: e5d1062bfddaea44dab916a7984b665d, type: 2}
+  - m_guid:
+      m_first: 16880896419891840555
+      m_second: 6730149812162181594
+    m_asset: {fileID: 11400000, guid: e5d1062bfddaea44dab916a7984b665d, type: 2}
