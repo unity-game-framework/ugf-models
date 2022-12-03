@@ -9,16 +9,16 @@ namespace UGF.Models.Editor.Collections
     internal class CollectionListModelAssetEditor : UnityEditor.Editor
     {
         private ReorderableListDrawer m_listItems;
-        private ReorderableListSelectionDrawerByElementGlobalId m_listItemsSelection;
+        private ReorderableListSelectionDrawerByElement m_listItemsSelection;
 
         private void OnEnable()
         {
-            m_listItems = new ReorderableListDrawer(serializedObject.FindProperty("m_items"))
+            m_listItems = new ReorderableListDrawer(serializedObject.FindProperty("m_models"))
             {
                 DisplayAsSingleLine = true
             };
 
-            m_listItemsSelection = new ReorderableListSelectionDrawerByElementGlobalId(m_listItems)
+            m_listItemsSelection = new ReorderableListSelectionDrawerByElement(m_listItems)
             {
                 Drawer = { DisplayTitlebar = true }
             };
