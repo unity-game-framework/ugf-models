@@ -11,14 +11,32 @@ namespace UGF.Models.Runtime.Domain
 
         public List<AssetIdReference<ModelAsset>> Models { get { return m_models; } }
 
+        protected override IModel OnBuild()
+        {
+            var model = new DomainModelCollectionModel();
+
+            for (int i = 0; i < m_models.Count; i++)
+            {
+                AssetIdReference<ModelAsset> reference = m_models[i];
+
+                model.ModelIds.Add(reference.Guid);
+            }
+
+            return model;
+        }
+
         protected override void OnGetModels(IDomainModel domainModel)
         {
             for (int i = 0; i < m_models.Count; i++)
             {
                 AssetIdReference<ModelAsset> reference = m_models[i];
-                IModel model = reference.Asset.Build();
 
-                domainModel.Models.Add(reference.Guid, model);
+                domainModel.Models.Add(reference.Guid, reference.Asset.Build());
+
+                if (reference.Asset is DomainModelCollectionAsset collection)
+                {
+                    collection.GetModels(domainModel);
+                }
             }
         }
     }

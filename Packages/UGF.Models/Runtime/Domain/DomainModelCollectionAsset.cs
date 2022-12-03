@@ -1,9 +1,8 @@
 ﻿using System;
-using UnityEngine;
 
 namespace UGF.Models.Runtime.Domain
 {
-    public abstract class DomainModelCollectionAsset : ScriptableObject
+    public abstract class DomainModelCollectionAsset : ModelAsset
     {
         public void GetModels(IDomainModel domainModel)
         {
