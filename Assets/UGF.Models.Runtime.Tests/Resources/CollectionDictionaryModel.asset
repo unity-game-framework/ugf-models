@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2923514f0a3c421dbf70026f89adfc9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0047a116042b4c10a8bace9c604b9dba, type: 3}
   m_Name: CollectionDictionaryModel
   m_EditorClassIdentifier: 
-  m_items:
-  - m_key:
-      m_first: 0
-      m_second: 0
-    m_value:
+  m_models:
+  - m_guid:
       m_first: 2816063439231733953
       m_second: 8771114046025915400
+    m_asset: {fileID: 11400000}
