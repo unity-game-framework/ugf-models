@@ -8,8 +8,9 @@ namespace UGF.Models.Runtime.Collections
     {
         public event CollectionListModelChangeHandler<TModel> Added;
         public event CollectionListModelChangeHandler<TModel> Removed;
-        public event CollectionListModelChangeHandler<TModel> Executed;
+        public event CollectionListModelChangeHandler<TModel> Changed;
         public event CollectionListModelHandler<TModel> Cleared;
+        public event CollectionListModelChangeHandler<TModel> Executed;
 
         public CollectionListModelController(IApplication application) : base(application)
         {
@@ -66,6 +67,18 @@ namespace UGF.Models.Runtime.Collections
             }
 
             return false;
+        }
+
+        public void Change(CollectionListModel<TModel> collection, int index, TModel model, IContext context)
+        {
+            if (collection == null) throw new ArgumentNullException(nameof(collection));
+            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (model == null) throw new ArgumentNullException(nameof(model));
+            if (context == null) throw new ArgumentNullException(nameof(context));
+
+            collection.Models[index] = model;
+
+            Changed?.Invoke(collection, index, model, context);
         }
 
         public void Clear(CollectionListModel<TModel> collection, IContext context)
