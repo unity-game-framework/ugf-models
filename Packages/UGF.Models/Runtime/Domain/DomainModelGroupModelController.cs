@@ -16,31 +16,31 @@ namespace UGF.Models.Runtime.Domain
         {
         }
 
-        public void Add(DomainModelGroupModel group, Guid key, Guid value, IContext context)
+        public void Add(DomainModelGroupModel groupModel, Guid key, Guid value, IContext context)
         {
-            if (group == null) throw new ArgumentNullException(nameof(group));
+            if (groupModel == null) throw new ArgumentNullException(nameof(groupModel));
             if (key == Guid.Empty) throw new ArgumentException("Value should be valid.", nameof(key));
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            group.ModelIds.Add(key, value);
+            groupModel.ModelIds.Add(key, value);
 
-            Added?.Invoke(group, key, value, context);
+            Added?.Invoke(groupModel, key, value, context);
         }
 
-        public bool Remove(DomainModelGroupModel group, Guid key, IContext context)
+        public bool Remove(DomainModelGroupModel groupModel, Guid key, IContext context)
         {
-            return Remove(group, key, context, out _);
+            return Remove(groupModel, key, context, out _);
         }
 
-        public bool Remove(DomainModelGroupModel group, Guid key, IContext context, out Guid value)
+        public bool Remove(DomainModelGroupModel groupModel, Guid key, IContext context, out Guid value)
         {
-            if (group == null) throw new ArgumentNullException(nameof(group));
+            if (groupModel == null) throw new ArgumentNullException(nameof(groupModel));
             if (key == Guid.Empty) throw new ArgumentException("Value should be valid.", nameof(key));
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            if (group.ModelIds.Remove(key, out value))
+            if (groupModel.ModelIds.Remove(key, out value))
             {
-                Removed?.Invoke(group, key, value, context);
+                Removed?.Invoke(groupModel, key, value, context);
                 return true;
             }
 
@@ -48,39 +48,39 @@ namespace UGF.Models.Runtime.Domain
             return false;
         }
 
-        public void Change(DomainModelGroupModel group, Guid key, Guid value, IContext context)
+        public void Change(DomainModelGroupModel groupModel, Guid key, Guid value, IContext context)
         {
-            if (group == null) throw new ArgumentNullException(nameof(group));
+            if (groupModel == null) throw new ArgumentNullException(nameof(groupModel));
             if (key == Guid.Empty) throw new ArgumentException("Value should be valid.", nameof(key));
             if (value == Guid.Empty) throw new ArgumentException("Value should be valid.", nameof(value));
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            group.ModelIds[key] = value;
+            groupModel.ModelIds[key] = value;
 
-            Changed?.Invoke(group, key, value, context);
+            Changed?.Invoke(groupModel, key, value, context);
         }
 
-        public void Clear(DomainModelGroupModel group, IContext context)
+        public void Clear(DomainModelGroupModel groupModel, IContext context)
         {
-            if (group == null) throw new ArgumentNullException(nameof(group));
+            if (groupModel == null) throw new ArgumentNullException(nameof(groupModel));
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            group.ModelIds.Clear();
+            groupModel.ModelIds.Clear();
 
-            Cleared?.Invoke(group, context);
+            Cleared?.Invoke(groupModel, context);
         }
 
-        protected override void OnExecute(DomainModelGroupModel group, IContext context)
+        protected override void OnExecute(DomainModelGroupModel groupModel, IContext context)
         {
-            foreach ((Guid key, Guid value) in group.ModelIds)
+            foreach ((Guid key, Guid value) in groupModel.ModelIds)
             {
-                OnExecute(group, key, value, context);
+                OnExecute(groupModel, key, value, context);
 
-                Executed?.Invoke(group, key, value, context);
+                Executed?.Invoke(groupModel, key, value, context);
             }
         }
 
-        protected virtual void OnExecute(DomainModelGroupModel group, Guid key, Guid value, IContext context)
+        protected virtual void OnExecute(DomainModelGroupModel groupModel, Guid key, Guid value, IContext context)
         {
         }
     }
