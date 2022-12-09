@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace UGF.Models.Editor.Collections
 {
-    [CustomEditor(typeof(CollectionListModelAsset), true)]
+    [CustomEditor(typeof(CollectionListModelAsset<,>), true)]
     internal class CollectionListModelAssetEditor : UnityEditor.Editor
     {
         private ReorderableListDrawer m_listItems;
