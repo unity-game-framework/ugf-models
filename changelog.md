@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-preview.5](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.5) - 2022-12-09  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/7?closed=1)  
+    
+
+### Fixed
+
+- Fix collection editors ([#17](https://github.com/unity-game-framework/ugf-models/issues/17))  
+    - Fix `CollectionDictionaryModelAsset` and `CollectionListModelAsset` classes display in editor when inherited from the generic base type.
+
 ## [2.0.0-preview.4](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.4) - 2022-12-03  
 
 ### Release Notes
