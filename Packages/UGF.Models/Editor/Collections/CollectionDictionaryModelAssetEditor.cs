@@ -6,7 +6,7 @@ using UnityEditor;
 
 namespace UGF.Models.Editor.Collections
 {
-    [CustomEditor(typeof(CollectionDictionaryModelAsset), true)]
+    [CustomEditor(typeof(CollectionDictionaryModelAsset<,>), true)]
     internal class CollectionDictionaryModelAssetEditor : UnityEditor.Editor
     {
         private AssetIdReferenceListDrawer m_listItems;
