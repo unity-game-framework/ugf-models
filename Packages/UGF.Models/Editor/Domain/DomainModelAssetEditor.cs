@@ -12,7 +12,7 @@ namespace UGF.Models.Editor.Domain
         private AssetIdReferenceListDrawer m_listModels;
         private ReorderableListSelectionDrawerByPath m_listModelsSelection;
         private AssetIdReferenceListDrawer m_listCollections;
-        private ReorderableListSelectionDrawerByElement m_listCollectionsSelection;
+        private ReorderableListSelectionDrawerByPath m_listCollectionsSelection;
 
         private void OnEnable()
         {
@@ -31,7 +31,7 @@ namespace UGF.Models.Editor.Domain
                 DisplayAsSingleLine = true
             };
 
-            m_listCollectionsSelection = new ReorderableListSelectionDrawerByElement(m_listCollections)
+            m_listCollectionsSelection = new ReorderableListSelectionDrawerByPath(m_listCollections, "m_asset")
             {
                 Drawer = { DisplayTitlebar = true }
             };
