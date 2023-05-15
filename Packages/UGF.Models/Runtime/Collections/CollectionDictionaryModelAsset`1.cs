@@ -5,7 +5,7 @@ using UnityEngine;
 namespace UGF.Models.Runtime.Collections
 {
     public abstract class CollectionDictionaryModelAsset<TModel, TModelAsset> : ModelAsset
-        where TModel : class, IModel
+        where TModel : IModel
         where TModelAsset : ModelAsset
     {
         [SerializeField] private List<AssetIdReference<TModelAsset>> m_models = new List<AssetIdReference<TModelAsset>>();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UGF.Models.Runtime.Collections
 {
-    public class CollectionDictionaryModel<TModel> : IModel where TModel : class, IModel
+    public class CollectionDictionaryModel<TModel> : IModel where TModel : IModel
     {
         public Dictionary<Guid, TModel> Models { get; set; } = new Dictionary<Guid, TModel>();
     }
