@@ -2,5 +2,5 @@
 
 namespace UGF.Models.Runtime.Collections
 {
-    public delegate void CollectionDictionaryModelClearHandler<TModel>(CollectionDictionaryModel<TModel> collection, IContext context) where TModel : class, IModel;
+    public delegate void CollectionDictionaryModelClearHandler<TModel>(CollectionDictionaryModel<TModel> collection, IContext context) where TModel : IModel;
 }

@@ -4,7 +4,7 @@ using UGF.RuntimeTools.Runtime.Contexts;
 
 namespace UGF.Models.Runtime.Collections
 {
-    public class CollectionListModelController<TModel> : ModelController<CollectionListModel<TModel>> where TModel : class, IModel
+    public class CollectionListModelController<TModel> : ModelController<CollectionListModel<TModel>> where TModel : IModel
     {
         public event CollectionListModelChangeHandler<TModel> Added;
         public event CollectionListModelChangeHandler<TModel> Removed;

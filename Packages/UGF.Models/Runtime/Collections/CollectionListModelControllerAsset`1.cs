@@ -3,7 +3,7 @@ using UGF.Module.Controllers.Runtime;
 
 namespace UGF.Models.Runtime.Collections
 {
-    public abstract class CollectionListModelControllerAsset<TModel> : ModelControllerAsset where TModel : class, IModel
+    public abstract class CollectionListModelControllerAsset<TModel> : ModelControllerAsset where TModel : IModel
     {
         protected override IController OnBuild(IApplication arguments)
         {
