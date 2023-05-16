@@ -9,7 +9,13 @@ namespace UGF.Models.Runtime.Collections
 
         public void Clear()
         {
+            OnClear();
+
             Models.Clear();
+        }
+
+        protected virtual void OnClear()
+        {
         }
     }
 }
