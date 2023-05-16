@@ -4,7 +4,7 @@ UGF.Models
 
 ## Information
 
-- **Version**: `2.0.0-preview.7`
+- **Version**: `2.0.0-preview.8`
 - **Unity**: `2022.2`
 - **API Compatibility Level**: `.NET Standard 2.1`
 

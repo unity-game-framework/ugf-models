@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-preview.8](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.8) - 2023-05-16  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/10?closed=1)  
+    
+
+### Added
+
+- Add collection clear method override ([#31](https://github.com/unity-game-framework/ugf-models/issues/31))  
+    - Add `CollectionDictionaryModel.OnClear()` and `CollectionListModel.OnClear()` protected virtual methods which can be used to add additional clear logic.
+
 ## [2.0.0-preview.7](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.7) - 2023-05-15  
 
 ### Release Notes
