@@ -1,7 +1,7 @@
 {
   "name": "com.ugf.models",
   "displayName": "UGF.Models",
-  "version": "2.0.0-preview.9",
+  "version": "2.0.0-preview.10",
   "unity": "2022.2",
   "apiCompatibility": ".NET Standard 2.1",
   "description": "Provides utilities to work with data models.",

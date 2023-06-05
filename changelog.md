@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-preview.10](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.10) - 2023-06-05  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/12?closed=1)  
+    
+
+### Changed
+
+- Change collection count property to method ([#35](https://github.com/unity-game-framework/ugf-models/issues/35))  
+    - Change `ICollectionModel.Count` property to `GetCount()` method.
+
 ## [2.0.0-preview.9](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.9) - 2023-05-22  
 
 ### Release Notes
