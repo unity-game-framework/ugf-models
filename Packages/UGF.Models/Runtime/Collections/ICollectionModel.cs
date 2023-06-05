@@ -2,8 +2,7 @@
 {
     public interface ICollectionModel : IModel
     {
-        int Count { get; }
-
         void Clear();
+        int GetCount();
     }
 }
