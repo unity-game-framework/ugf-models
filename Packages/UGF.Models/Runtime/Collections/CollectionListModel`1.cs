@@ -4,7 +4,6 @@ namespace UGF.Models.Runtime.Collections
 {
     public class CollectionListModel<TModel> : ICollectionModel where TModel : IModel
     {
-        public int Count { get { return Models.Count; } }
         public List<TModel> Models { get; set; }
 
         public CollectionListModel(int capacity = 4)
@@ -17,6 +16,11 @@ namespace UGF.Models.Runtime.Collections
             OnClear();
 
             Models.Clear();
+        }
+
+        public int GetCount()
+        {
+            return Models.Count;
         }
 
         protected virtual void OnClear()
