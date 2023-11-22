@@ -21,10 +21,7 @@ namespace UGF.Models.Editor.Domain
 
             m_listModelsSelection = new ReorderableListSelectionDrawerByPath(m_listModels, "m_asset")
             {
-                Drawer =
-                {
-                    DisplayTitlebar = true
-                }
+                Drawer = { DisplayTitlebar = true }
             };
 
             m_listModels.Enable();
