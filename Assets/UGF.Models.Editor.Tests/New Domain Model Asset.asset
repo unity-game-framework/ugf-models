@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: New Domain Model Asset
   m_EditorClassIdentifier: 
   m_models:
-  - m_guid: 85b35f314533f3c47be23c8e4d74f3f9
+  - m_guid:
+      m_first: 17565240534240550705
+      m_second: 18010867211232404091
     m_asset: {fileID: 11400000}
+  m_collections: []
+  m_modelCollections: []
