@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0047a116042b4c10a8bace9c604b9dba, type: 3}
   m_Name: New Collection Dictionary Model Asset
   m_EditorClassIdentifier: 
-  m_models: []
+  m_models:
+  - m_guid:
+      m_first: 2653793402564554378
+      m_second: 3502967722643909338
+    m_asset: {fileID: 11400000, guid: 0b22ae8a2b0a24d4da6ad98f950a9d30, type: 2}
+  - m_guid:
+      m_first: 3459916985437738647
+      m_second: 16118353489135761657
+    m_asset: {fileID: 11400000, guid: b55b5697182a3004f9781d8419e5afdf, type: 2}
