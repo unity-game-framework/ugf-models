@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea83b98f39e94fa589016a56495e159b, type: 3}
   m_Name: New Collection List Model Asset
   m_EditorClassIdentifier: 
-  m_models: []
+  m_models:
+  - {fileID: 11400000, guid: 0b22ae8a2b0a24d4da6ad98f950a9d30, type: 2}
+  - {fileID: 11400000, guid: b55b5697182a3004f9781d8419e5afdf, type: 2}

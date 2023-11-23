@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bcf99b3c7f4fae8e6bbfbe24016826, type: 3}
   m_Name: New Model Collection List Asset
   m_EditorClassIdentifier: 
-  m_models: []
+  m_models:
+  - m_guid:
+      m_first: 2653793402564554378
+      m_second: 3502967722643909338
+    m_asset: {fileID: 11400000, guid: 0b22ae8a2b0a24d4da6ad98f950a9d30, type: 2}
+  - m_guid:
+      m_first: 3459916985437738647
+      m_second: 16118353489135761657
+    m_asset: {fileID: 11400000, guid: b55b5697182a3004f9781d8419e5afdf, type: 2}
