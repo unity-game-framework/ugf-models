@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0-preview](https://github.com/unity-game-framework/ugf-models/releases/tag/3.0.0-preview) - 2023-11-23  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/13?closed=1)  
+    
+
+### Added
+
+- Add copyable and clearable interfaces ([#42](https://github.com/unity-game-framework/ugf-models/issues/42))  
+    - Add `IModelClearable` interface used to implement model clear method.
+    - Add `IModelCopyable` interface used to implement model copy method.
+    - Add `CollectionDictionaryModel` and `CollectionListModel` classes clear and copy interface support.
+    - Add `DomainModel`, `DomainModelCollectionModel` and `DomainModelGroupModel` classes clear and copy support.
+- Add model collection folder ([#39](https://github.com/unity-game-framework/ugf-models/issues/39))  
+    - Update dependencies: add `com.ugf.assets` of `1.0.0-preview` version.
+    - Add `CollectionDictionaryModelFolderAsset`, `CollectionListModelFolderAsset` and `ModelFolderAsset` classes as implementation of asset folders.
+
+### Removed
+
+- Remove domain model collection asset ([#41](https://github.com/unity-game-framework/ugf-models/issues/41))  
+    - Remove `DomainModelCollectionAsset` and related classes.
+- Remove controllers and systems ([#38](https://github.com/unity-game-framework/ugf-models/issues/38))  
+    - Update dependencies: remove `com.ugf.module.controllers` package.
+    - Update package _Unity_ version to `2023.2`.
+    - Update package registry to _UPM Hub_.
+    - Remove `DomainSystemModel` and related classes.
+    - Remove `ModelController` and related classes.
+
 ## [2.0.0-preview.10](https://github.com/unity-game-framework/ugf-models/releases/tag/2.0.0-preview.10) - 2023-06-05  
 
 ### Release Notes
