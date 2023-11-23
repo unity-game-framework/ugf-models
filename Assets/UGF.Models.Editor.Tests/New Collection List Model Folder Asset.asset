@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7174384e384f7794fc6aff73d71d29, type: 3}
+  m_Name: New Collection List Model Folder Asset
+  m_EditorClassIdentifier: 
+  m_folder: {fileID: 102900000, guid: 8ccf1c52d7257424fa1f681a75a35d1c, type: 3}
+  m_collection: {fileID: 11400000, guid: aa23a314faaf04e44b49bbe66b6d9c92, type: 2}
