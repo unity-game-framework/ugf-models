@@ -1,8 +1,7 @@
 ﻿namespace UGF.Models.Runtime.Collections
 {
-    public interface ICollectionModel : IModel
+    public interface ICollectionModel : IModelClearable, IModelCopyable
     {
-        void Clear();
         int GetCount();
     }
 }

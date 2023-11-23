@@ -15,8 +15,6 @@ namespace UGF.Models.Runtime.Collections
         public void Clear()
         {
             OnClear();
-
-            Models.Clear();
         }
 
         public int GetCount()
@@ -24,8 +22,24 @@ namespace UGF.Models.Runtime.Collections
             return Models.Count;
         }
 
+        public void CopyFrom(IModel model)
+        {
+            if (model is not CollectionDictionaryModel<TModel> collection) throw new ArgumentException($"Model type must be of '{typeof(CollectionDictionaryModel<TModel>)}', but was '{model}'.");
+
+            OnCopyFrom(collection);
+        }
+
         protected virtual void OnClear()
         {
+            Models.Clear();
+        }
+
+        protected virtual void OnCopyFrom(CollectionDictionaryModel<TModel> collection)
+        {
+            foreach ((Guid id, TModel model) in collection.Models)
+            {
+                Models.Add(id, model);
+            }
         }
     }
 }
