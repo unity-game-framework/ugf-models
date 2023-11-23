@@ -8,12 +8,10 @@ namespace UGF.Models.Runtime.Domain
     public class DomainModelAsset : ModelAsset
     {
         [SerializeField] private List<AssetIdReference<ModelAsset>> m_models = new List<AssetIdReference<ModelAsset>>();
-        [SerializeField] private List<AssetIdReference<DomainModelCollectionAsset>> m_collections = new List<AssetIdReference<DomainModelCollectionAsset>>();
-        [SerializeField] private List<ModelCollectionAsset> m_modelCollections = new List<ModelCollectionAsset>();
+        [SerializeField] private List<ModelCollectionAsset> m_collections = new List<ModelCollectionAsset>();
 
         public List<AssetIdReference<ModelAsset>> Models { get { return m_models; } }
-        public List<AssetIdReference<DomainModelCollectionAsset>> Collections { get { return m_collections; } }
-        public List<ModelCollectionAsset> ModelCollections { get { return m_modelCollections; } }
+        public List<ModelCollectionAsset> Collections { get { return m_collections; } }
 
         protected override IModel OnBuild()
         {
@@ -28,16 +26,7 @@ namespace UGF.Models.Runtime.Domain
 
             for (int i = 0; i < m_collections.Count; i++)
             {
-                AssetIdReference<DomainModelCollectionAsset> reference = m_collections[i];
-
-                domain.Models.Add(reference.Guid, reference.Asset.Build());
-
-                reference.Asset.GetModels(domain);
-            }
-
-            for (int i = 0; i < m_modelCollections.Count; i++)
-            {
-                ModelCollectionAsset collection = m_modelCollections[i];
+                ModelCollectionAsset collection = m_collections[i];
 
                 collection.GetModels(domain.Models);
             }
