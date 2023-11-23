@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace UGF.Models.Runtime.Collections
 {
@@ -14,8 +15,6 @@ namespace UGF.Models.Runtime.Collections
         public void Clear()
         {
             OnClear();
-
-            Models.Clear();
         }
 
         public int GetCount()
@@ -23,8 +22,24 @@ namespace UGF.Models.Runtime.Collections
             return Models.Count;
         }
 
+        public void CopyFrom(IModel model)
+        {
+            if (model is not CollectionListModel<TModel> collection) throw new ArgumentException($"Model type must be of '{typeof(CollectionListModel<TModel>)}', but was '{model}'.");
+
+            OnCopyFrom(collection);
+        }
+
         protected virtual void OnClear()
         {
+            Models.Clear();
+        }
+
+        protected virtual void OnCopyFrom(CollectionListModel<TModel> collection)
+        {
+            for (int i = 0; i < collection.Models.Count; i++)
+            {
+                Models.Add(collection.Models[i]);
+            }
         }
     }
 }
