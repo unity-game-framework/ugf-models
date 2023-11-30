@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using UGF.Models.Runtime.Collections;
 
 namespace UGF.Models.Runtime.Domain
 {
-    public class DomainModel : CollectionDictionaryModel<IModel>
+    public class DomainModel : CollectionDictionaryModel<IModel>, IDomainModel
     {
+        IDictionary<Guid, IModel> IDomainModel.Models { get { return Models; } }
+
         protected override void OnClear()
         {
             foreach ((_, IModel model) in Models)
