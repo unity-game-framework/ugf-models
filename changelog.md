@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0-preview.2](https://github.com/unity-game-framework/ugf-models/releases/tag/3.0.0-preview.2) - 2024-01-28  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/15?closed=1)  
+    
+
+### Added
+
+- Add combined model ([#48](https://github.com/unity-game-framework/ugf-models/issues/48))  
+    - Update dependencies: `com.ugf.editortools` to `3.0.0-preview.2` and `com.ugf.assets` to `1.0.0-preview.2` versions.
+    - Add `ModelCombined` class as copyable and clearable model implementation with a collection of nested models.
+
 ## [3.0.0-preview.1](https://github.com/unity-game-framework/ugf-models/releases/tag/3.0.0-preview.1) - 2023-11-30  
 
 ### Release Notes
