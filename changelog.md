@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0-preview.3](https://github.com/unity-game-framework/ugf-models/releases/tag/3.0.0-preview.3) - 2024-02-19  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/16?closed=1)  
+    
+
+### Added
+
+- Add clone support ([#50](https://github.com/unity-game-framework/ugf-models/issues/50))  
+    - Add `IModelCloneable` interface used to implement model with clone support.
+    - Add `ModelUtility` static class with `CreateCopy<T>()` method as model copy shortcut.
+    - Change `ModelCombined`, `CollectionDictionaryModel<T>`, `CollectionListModel<T>` and `DomainModel` models to support `IModelCloneable` interface.
+
 ## [3.0.0-preview.2](https://github.com/unity-game-framework/ugf-models/releases/tag/3.0.0-preview.2) - 2024-01-28  
 
 ### Release Notes
