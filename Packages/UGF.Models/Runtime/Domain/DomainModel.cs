@@ -23,16 +23,28 @@ namespace UGF.Models.Runtime.Domain
         {
             foreach ((Guid id, IModel modelTo) in Models)
             {
-                if (modelTo is IModelCopyable copyableTo)
+                if (modelTo is IModelCopyable copyableTo && collection.Models.TryGetValue(id, out IModel modelFrom))
                 {
-                    if (!collection.Models.TryGetValue(id, out IModel modelFrom))
-                    {
-                        throw new ArgumentException($"Domain model must have same collections, but one was not found: '{id}'.");
-                    }
-
                     copyableTo.CopyFrom(modelFrom);
                 }
             }
+        }
+
+        protected override IModel OnClone()
+        {
+            var domainModel = new DomainModel();
+
+            foreach ((Guid id, IModel model) in Models)
+            {
+                if (model is IModelCloneable cloneable)
+                {
+                    IModel clone = cloneable.Clone();
+
+                    domainModel.Models.Add(id, clone);
+                }
+            }
+
+            return domainModel;
         }
     }
 }

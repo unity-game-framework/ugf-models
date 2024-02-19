@@ -29,6 +29,11 @@ namespace UGF.Models.Runtime.Collections
             OnCopyFrom(collection);
         }
 
+        public IModel Clone()
+        {
+            return OnClone();
+        }
+
         protected virtual void OnClear()
         {
             Models.Clear();
@@ -40,6 +45,11 @@ namespace UGF.Models.Runtime.Collections
             {
                 Models.Add(id, model);
             }
+        }
+
+        protected virtual IModel OnClone()
+        {
+            return ModelUtility.CreateCopy(this, model => new CollectionDictionaryModel<TModel>(model.Models.Count));
         }
     }
 }
