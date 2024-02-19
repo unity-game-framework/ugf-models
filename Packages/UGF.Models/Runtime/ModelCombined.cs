@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace UGF.Models.Runtime
 {
-    public class ModelCombined : IModelCopyable, IModelClearable
+    public class ModelCombined : IModelCopyable, IModelClearable, IModelCloneable, IEnumerable<IModel>
     {
-        private readonly List<IModel> m_models = new List<IModel>();
+        private readonly List<IModel> m_models;
+
+        public ModelCombined(int capacity = 4)
+        {
+            m_models = new List<IModel>(capacity);
+        }
 
         public bool Contains(IModel model)
         {
@@ -86,6 +92,45 @@ namespace UGF.Models.Runtime
                     clearable.Clear();
                 }
             }
+        }
+
+        public IModel Clone()
+        {
+            return OnClone();
+        }
+
+        public List<IModel>.Enumerator GetEnumerator()
+        {
+            return m_models.GetEnumerator();
+        }
+
+        protected virtual IModel OnClone()
+        {
+            var clone = new ModelCombined(m_models.Count);
+
+            for (int i = 0; i < m_models.Count; i++)
+            {
+                IModel model = m_models[i];
+
+                if (model is IModelCloneable cloneable)
+                {
+                    IModel modelClone = cloneable.Clone();
+
+                    clone.Add(modelClone);
+                }
+            }
+
+            return clone;
+        }
+
+        IEnumerator<IModel> IEnumerable<IModel>.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
