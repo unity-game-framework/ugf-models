@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0-preview.4](https://github.com/unity-game-framework/ugf-models/releases/tag/3.0.0-preview.4) - 2024-05-29  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-models/milestone/17?closed=1)  
+    
+
+### Removed
+
+- Remove model combined enumerable support ([#52](https://github.com/unity-game-framework/ugf-models/issues/52))  
+    - Update dependencies: `com.ugf.editortools` to `3.0.0-preview.9` version.
+    - Remove `ModelCombined` class enumerable implementation.
+
 ## [3.0.0-preview.3](https://github.com/unity-game-framework/ugf-models/releases/tag/3.0.0-preview.3) - 2024-02-19  
 
 ### Release Notes

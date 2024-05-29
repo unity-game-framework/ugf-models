@@ -4,14 +4,14 @@ UGF.Models
 
 ## Information
 
-- **Version**: `3.0.0-preview.3`
+- **Version**: `3.0.0-preview.4`
 - **Unity**: `2023.2`
 - **API Compatibility Level**: `.NET Standard 2.1`
 
 ### Dependencies
 
 - `com.ugf.builder`: `2.0.2`
-- `com.ugf.editortools`: `3.0.0-preview.2`
+- `com.ugf.editortools`: `3.0.0-preview.9`
 - `com.ugf.assets`: `1.0.0-preview.2`
 
 
