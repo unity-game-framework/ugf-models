@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace UGF.Models.Runtime
 {
-    public class ModelCombined : IModelCopyable, IModelClearable, IModelCloneable, IEnumerable<IModel>
+    public class ModelCombined : IModelCopyable, IModelClearable, IModelCloneable
     {
         private readonly List<IModel> m_models;
 
@@ -99,11 +98,6 @@ namespace UGF.Models.Runtime
             return OnClone();
         }
 
-        public List<IModel>.Enumerator GetEnumerator()
-        {
-            return m_models.GetEnumerator();
-        }
-
         protected virtual IModel OnClone()
         {
             var clone = new ModelCombined(m_models.Count);
@@ -121,16 +115,6 @@ namespace UGF.Models.Runtime
             }
 
             return clone;
-        }
-
-        IEnumerator<IModel> IEnumerable<IModel>.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }
